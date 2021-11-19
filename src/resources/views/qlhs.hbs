@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <button type="button" class="btn btn-success fs-3 teacher-btn-list">Danh sách</button>
+  <button type="button" class="btn btn-warning fs-3 teacher-btn-add">Thêm học sinh</button>
+  <table class="table list-teacher mt-4">
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Mã học sinh</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Lớp</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each dshocsinh}}
+      <tr>
+        <th scope="row" class="py-3">{{sum @index 1}}</th>
+        <td>{{this.HS_ma}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.HS_lop}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div class="add-teacher hide mt-5">
+    <form action="" method="POST">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Họ tên</label>
+        <input type="text" class="form-control fs-3" id="name" name="name">
+      </div>
+      <select class="form-select fs-3 mb-3" aria-label="Default select example" name="lop">
+        <option selected>Lớp</option>
+        {{#each dslop}}
+        <option value="{{this.LH_name}}">{{this.LH_name}}</option>
+        {{/each}}
+      </select>
+      <button type="submit" class="btn btn-primary fs-3">Thêm học sinh</button>
+    </form>
+  </div>
+</div>

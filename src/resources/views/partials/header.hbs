@@ -1,0 +1,126 @@
+{{#if isAdmin}}
+<header class="header">
+  <div class="header-inner container">
+    <a href="/" class="logo">
+      <img src="https://tuyensinh.ictu.edu.vn/wp-content/uploads/2021/03/Logo_ICTU-300x300-1.png" alt="">
+    </a>
+    <navigation class="nav">
+      <ul class="nav-main">
+        <li class="nav-item">
+          <a href="/admin" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item">
+          <a href="/admin/qlgv" class="nav-link">Quản lý danh sách giáo viên</a>
+        </li>
+        <li class="nav-item">
+          <a href="/admin/qllh" class="nav-link">Quản lý danh sách lớp</a>
+        </li>
+        <li class="nav-item">
+          <a href="/admin/qlhs" class="nav-link">Quản lý danh sách học sinh</a>
+        </li>
+      </ul>
+    </navigation>
+    <div class="header-left">
+      <div class="header-left-top">
+        <p class="session-name"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1024px-User_icon_2.svg.png" alt="">{{name}}</p>
+        <a href="/logout" class="logout"><i class='bx bx-log-out'></i>Đăng xuất</a>
+      </div>
+      <p class="header-left-bottom">Admin</p>
+    </div>
+  </div>
+</header>
+{{/if}}
+{{#if isTeacher}}
+  {{#if isHeadTeacher}}
+  <header class="header">
+    <div class="header-inner container">
+      <a href="/" class="logo">
+        <img src="https://tuyensinh.ictu.edu.vn/wp-content/uploads/2021/03/Logo_ICTU-300x300-1.png" alt="">
+      </a>
+      <navigation class="nav">
+        <ul class="nav-main">
+          <li class="nav-item">
+            <a href="/gv" class="nav-link">Trang chủ</a>
+          </li>
+          <li class="nav-item">
+            <a href="/gv/qlnhch" class="nav-link">Quản lý ngân hàng câu hỏi</a>
+          </li>
+          <li class="nav-item">
+            <a href="/gv/qlchcd" class="nav-link">Quản lý câu hỏi chờ duyệt</a>
+          </li>
+          <li class="nav-item">
+            <a href="/gv/quanlydanhsachdethi" class="nav-link">Quản lý danh sách đề thi</a>
+          </li>
+          <li class="nav-item">
+            <a href="/gv/quanlycuocthi" class="nav-link">Quản lý cuộc thi</a>
+          </li>
+        </ul>
+      </navigation>
+      <div class="header-left">
+        <div class="header-left-top">
+          <p class="session-name"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1024px-User_icon_2.svg.png" alt="">{{name}}</p>
+          <a href="/logout" class="logout"><i class='bx bx-log-out'></i>Đăng xuất</a>
+        </div>
+        <p class="header-left-bottom">Giáo viên trưởng môn {{gvMon}}</p>
+      </div>
+    </div>
+  </header>
+  {{else}}
+  <header class="header">
+    <div class="header-inner container">
+      <a href="/" class="logo">
+        <img src="https://tuyensinh.ictu.edu.vn/wp-content/uploads/2021/03/Logo_ICTU-300x300-1.png" alt="">
+      </a>
+      <navigation class="nav">
+        <ul class="nav-main">
+          <li class="nav-item">
+            <a href="/gv" class="nav-link">Trang chủ</a>
+          </li>
+          <li class="nav-item">
+            <a href="/gv/qlch" class="nav-link">Quản lý câu hỏi</a>
+          </li>
+          <li class="nav-item">
+            <a href="/gv/dscoithi" class="nav-link">Tham gia coi thi</a>
+          </li>
+        </ul>
+      </navigation>
+      <div class="header-left">
+        <div class="header-left-top">
+          <p class="session-name"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1024px-User_icon_2.svg.png" alt="">{{name}}</p>
+          <a href="/logout" class="logout"><i class='bx bx-log-out'></i>Đăng xuất</a>
+        </div>
+        <p class="header-left-bottom">Giáo viên môn {{gvMon}}</p>
+      </div>
+    </div>
+  </header>
+  {{/if}}
+{{/if}}
+{{#if isStudent}}
+<header class="header">
+  <div class="header-inner container">
+    <a href="/" class="logo">
+      <img src="https://tuyensinh.ictu.edu.vn/wp-content/uploads/2021/03/Logo_ICTU-300x300-1.png" alt="">
+    </a>
+    <navigation class="nav">
+      <ul class="nav-main">
+        <li class="nav-item">
+          <a href="/hs" class="nav-link">Trang chủ</a>
+        </li>
+        <li class="nav-item">
+          <a href="/hs/dskithi" class="nav-link">Tham gia thi</a>
+        </li>
+        <li class="nav-item">
+          <a href="/hs/diemcanhan" class="nav-link">Quản lý điểm cá nhân</a>
+        </li>
+      </ul>
+    </navigation>
+    <div class="header-left">
+      <div class="header-left-top">
+        <p class="session-name"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1024px-User_icon_2.svg.png" alt="">{{name}}</p>
+        <a href="/logout" class="logout"><i class='bx bx-log-out'></i>Đăng xuất</a>
+      </div>
+      <p class="header-left-bottom">Học sinh</p>
+    </div>
+  </div>
+</header>
+{{/if}}

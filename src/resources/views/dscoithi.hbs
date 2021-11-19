@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <table class="table list-teacher mt-4">
+    <thead>
+      <tr>
+        <th scope="col">Tên</th>
+        <th scope="col">Môn</th>
+        <th scope="col">Bộ đề</th>
+        <th scope="col">Lớp tham gia</th>
+        <th scope="col">Trạng thái</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each dskithi}}
+      <tr>
+        <td><a href="/gv/dscoithi/{{this.id}}">{{this.KT_name}}</a></td>
+        <td>{{this.MH_name}}</td>
+        <td>{{this.BD_ma}}</td>
+        <td>{{this.LH_name}}</td>
+        <td>{{#if this.KT_trangthai}}Đã thi{{else}}Chưa thi{{/if}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

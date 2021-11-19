@@ -1,0 +1,29 @@
+<div class="container my-5">
+  <h3 class="fs-2 mb-4">Mã đề thi: {{madethi}}</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Mã câu hỏi</th>
+        <th scope="col">Câu hỏi</th>
+        <th scope="col">Đáp án 1</th>
+        <th scope="col">Đáp án 2</th>
+        <th scope="col">Đáp án 3</th>
+        <th scope="col">Đáp án 4</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each dscauhoi}}
+      <tr>
+        <th scope="row">{{sum @index 1}}</th>
+        <td>{{this.CH_id}}</td>
+        <td>{{this.CH_noidung}}</td>
+        <td>{{this.CH_dapan1}}</td>
+        <td>{{this.CH_dapan2}}</td>
+        <td>{{this.CH_dapan3}}</td>
+        <td>{{this.CH_dapan4}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

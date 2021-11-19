@@ -1,0 +1,59 @@
+<div class="container mt-5">
+  <button type="button" class="btn btn-success fs-3 teacher-btn-list">Danh sách</button>
+  <button type="button" class="btn btn-warning fs-3 teacher-btn-add">Thêm cuộc thi</button>
+  <table class="table list-teacher mt-4">
+    <thead>
+      <tr>
+        <th scope="col">Tên</th>
+        <th scope="col">Môn</th>
+        <th scope="col">Bộ đề</th>
+        <th scope="col">Lớp tham gia</th>
+        <th scope="col">Người coi thi</th>
+        <th scope="col">Trạng thái</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each dskithi}}
+      <tr>
+        <td>{{this.KT_name}}</td>
+        <td>{{this.MH_name}}</td>
+        <td>{{this.BD_ma}}</td>
+        <td>{{this.LH_name}}</td>
+        <td>{{this.GV_name}}</td>
+        <td>{{#if this.KT_trangthai}}Đã thi{{else}}Chưa thi{{/if}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div class="add-teacher hide mt-4">
+    <form action="" method="POST">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Tên</label>
+        <input type="text" class="form-control fs-3" id="name" name="name" required>
+      </div>
+      <select class="form-select fs-3 my-5" aria-label="Default select example" name="bode">
+        <option selected>Bộ đề</option>
+        {{#each dsbode}}
+        <option value="{{this.BD_ma}}">{{this.BD_ma}}</option>
+        {{/each}}
+      </select>
+      <select class="form-select fs-3 my-5" aria-label="Default select example" name="lop">
+        <option selected>Lớp tham gia thi</option>
+        {{#each dslop}}
+        <option value="{{this.LH_name}}">{{this.LH_name}}</option>
+        {{/each}}
+      </select>
+      <select class="form-select fs-3 my-5" aria-label="Default select example" name="giaovien">
+        <option selected>Giáo viên coi thi</option>
+        {{#each dsgiaovien}}
+        <option value="{{this.GV_ma}}">{{this.GV_name}}</option>
+        {{/each}}
+      </select>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Thời gian (số phút)</label>
+        <input type="number" class="form-control fs-3" id="name" name="time" min="5" max="200" value="30">
+      </div>
+      <button type="submit" class="btn btn-primary fs-3 my-3">Tạo cuộc thi</button>
+    </form>
+  </div>
+</div>

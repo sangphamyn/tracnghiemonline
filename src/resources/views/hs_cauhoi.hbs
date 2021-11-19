@@ -1,0 +1,137 @@
+<script>
+  function autoSubmit1()
+    {
+        let radio_input = document.querySelectorAll('.answer-input');
+        for(let a of radio_input) {
+          a.checked = false;
+        }
+        document.querySelectorAll('.answer-input')[0].checked = true;
+        var formObject = document.forms[0];
+        formObject.submit();
+    }
+  function autoSubmit2()
+    {
+        let radio_input = document.querySelectorAll('.answer-input');
+        for(let a of radio_input) {
+          a.checked = false;
+        }
+        document.querySelectorAll('.answer-input')[1].checked = true;
+        var formObject = document.forms[0];
+        formObject.submit();
+    }
+  function autoSubmit3()
+    {
+        let radio_input = document.querySelectorAll('.answer-input');
+        for(let a of radio_input) {
+          a.checked = false;
+        }
+        document.querySelectorAll('.answer-input')[2].checked = true;
+        var formObject = document.forms[0];
+        formObject.submit();
+    }
+  function autoSubmit4()
+    {
+        let radio_input = document.querySelectorAll('.answer-input');
+        for(let a of radio_input) {
+          a.checked = false;
+        }
+        document.querySelectorAll('.answer-input')[3].checked = true;
+        var formObject = document.forms[0];
+        formObject.submit();
+    }
+</script>
+<div class="exercise">
+        <div class="exercise-wrapper">
+            <div class="exercise-status">
+                <div class="timer">
+                    <div class="timer-pie">
+                        <div class="timer-pie-left"></div>
+                        <div class="timer-pie-right"></div>
+                    </div>
+                    <div class="timer-shadow">00:00</div>
+                </div>
+                <div class="exercise-control">
+                    <a href="{{#if (isEqual cauhoi.CH_thutu 1)}}1{{else}}{{sub cauhoi.CH_thutu 1}}{{/if}}" class="exercise-control-item">
+                        <i class='bx bxs-left-arrow' ></i>
+                        <span>Câu hỏi trước</span>
+                    </a>
+                    <a href="{{#if (isEqual cauhoi.CH_thutu socauhoi)}}{{socauhoi}}{{else}}{{sum cauhoi.CH_thutu 1}}{{/if}}" class="exercise-control-item">
+                        <span>Câu hỏi sau</span>
+                        <i class='bx bxs-right-arrow'></i>
+                    </a>
+                </div>
+                <div class="question-list">
+                  {{#each dscauhoi}}
+                    <div class="question-item {{#if (isEqual this.dapan_chon 0)}}{{else}}question-item-select{{/if}}"><a href="{{this.CH_thutu}}">{{this.CH_thutu}}</a></div>
+                  {{/each}}
+                </div>
+                <div class="submit-exam"><a href="../ketthuc">Nộp bài</a></div>
+            </div>
+            <form action="{{cauhoi.CH_thutu}}" method="POST" class="form-do-exam">
+                <h3 class="exam-title">Câu {{cauhoi.CH_thutu}}</h3>
+                <p class="question">{{cauhoi.CH_noidung}}</p>
+                <div class="answer">
+                    <div class="answer-item">
+                        <div class="radio-control">
+                            <input type="radio" name="answerSelect1" class="answer-input" id="answer-1" onChange="autoSubmit1();" {{#if (isEqual cauhoi.dapan_chon 1)}}checked="checked"{{/if}}>
+                            <label for="answer-1" class="answer-content">{{cauhoi.CH_dapan1}}</label>
+                        </div>
+                    </div>
+                    <div class="answer-item">
+                        <div class="radio-control">
+                            <input type="radio" name="answerSelect2" class="answer-input" id="answer-2" onChange="autoSubmit2();" {{#if (isEqual cauhoi.dapan_chon 2)}}checked="checked"{{/if}}>
+                            <label for="answer-2" class="answer-content">{{cauhoi.CH_dapan2}}</label>
+                        </div>
+                    </div>
+                    <div class="answer-item">
+                        <div class="radio-control">
+                            <input type="radio" name="answerSelect3" class="answer-input" id="answer-3" onChange="autoSubmit3();" {{#if (isEqual cauhoi.dapan_chon 3)}}checked="checked"{{/if}}>
+                            <label for="answer-3" class="answer-content">{{cauhoi.CH_dapan3}}</label>
+                        </div>
+                    </div>
+                    <div class="answer-item">
+                        <div class="radio-control">
+                            <input type="radio" name="answerSelect4" class="answer-input" id="answer-4" onChange="autoSubmit4();" {{#if (isEqual cauhoi.dapan_chon 4)}}checked="checked"{{/if}}>
+                            <label for="answer-4" class="answer-content">{{cauhoi.CH_dapan4}}</label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        let time = {{thoigianconlai}};
+        let tempTime = {{thoigianthi}}*60;
+        let left_pie = document.querySelector('.timer-pie-left');
+        let right_pie = document.querySelector('.timer-pie-right');
+        let pie = document.querySelector('.timer-pie');
+        let timerHtml = document.querySelector('.timer-shadow');
+        function progressCircle() {
+            let timeLeft = tempTime - time;
+            let percent = timeLeft / tempTime;
+            if(percent > 0.5) {
+                right_pie.style.display = "none";
+                pie.classList.add('hide-left');
+            }
+            else {
+                pie.classList.remove('hide-left');
+                right_pie.style.display = "block";
+            }
+            let deg = -(360 * percent);
+            left_pie.style.transform = `rotate(${deg}deg)`;
+        }
+        function countDown() {
+            if(time > 0){
+                time--;
+                let minutes = String(Math.floor(time / 60)).padStart(2, '0');
+                let seconds = String(time % 60).padStart(2, '0');
+                let timer = `${minutes} : ${seconds}`;
+                timerHtml.innerHTML = timer;
+                progressCircle();
+            }
+            else if (time == 0) {
+                window.location.reload();
+            }
+        }
+        setInterval(countDown, 1000);
+    </script>

@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <table class="table list-teacher mt-4">
+    <thead>
+      <tr>
+        <th scope="col">Tên</th>
+        <th scope="col">Môn</th>
+        <th scope="col">Thời gian thi</th>
+        <th scope="col">Điểm</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each dskithi}}
+      <tr>
+        <td class="py-4">{{this.KT_name}}</td>
+        <td>{{this.MH_name}}</td>
+        <td>{{this.thoigian_batdau}}</td>
+        <td>{{this.diem}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

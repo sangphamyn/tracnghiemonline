@@ -1,0 +1,47 @@
+<div class="container mt-5">
+  <button type="button" class="btn btn-success fs-3 teacher-btn-list">Danh sách</button>
+  <button type="button" class="btn btn-warning fs-3 teacher-btn-add">Thêm giáo viên</button>
+  <table class="table list-teacher mt-4">
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Mã giáo viên</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Môn</th>
+        <th scope="col">TM</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each dsgiaovien}}
+      <tr>
+        <th scope="row" class="py-3">{{sum @index 1}}</th>
+        <td>{{this.GV_ma}}</td>
+        <td>{{this.GV_name}}</td>
+        <td>{{this.MH_name}}</td>
+        <td>{{#if this.isHeadTeacher}}Trưởng bộ môn{{/if}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div class="add-teacher hide mt-4">
+    <form action="" method="POST">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Họ tên</label>
+        <input type="text" class="form-control fs-3" id="name" name="name" required>
+      </div>
+      <select class="form-select fs-3 my-5" aria-label="Default select example" name="monhoc">
+        <option selected>Môn</option>
+        {{#each dsmonhoc}}
+        <option value="{{this.MH_id}}">{{this.MH_name}}</option>
+        {{/each}}
+      </select>
+      <div class="form-check my-5">
+        <input class="form-check-input" type="checkbox" name="isHead" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Trưởng bộ môn
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary fs-3 my-3">Thêm giáo viên</button>
+    </form>
+  </div>
+</div>

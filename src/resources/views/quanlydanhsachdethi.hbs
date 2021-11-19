@@ -1,0 +1,56 @@
+<div class="container mt-5">
+  <button type="button" class="btn btn-success fs-3 teacher-btn-list">Danh sách</button>
+  <button type="button" class="btn btn-warning fs-3 teacher-btn-add">Soạn đề thi</button>
+  <table class="table list-teacher mt-4">
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Mã đề</th>
+        <th scope="col">Môn</th>
+        <th scope="col">Tổng số câu</th>
+        <th scope="col">Số lượng đề</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each dsdethi}}
+      <tr>
+        <th scope="row">{{sum @index 1}}</th>
+        <td><a href="/gv/quanlydanhsachdethi/{{this.BD_ma}}">{{this.BD_ma}}</a></td>
+        <td>{{this.MH_name}}</td>
+        <td>{{this.BD_tongsocau}}</td>
+        <td>{{this.BD_soluongde}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div class="add-teacher hide mt-5">
+    <form action="" method="POST">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Số đề thi</label>
+        <input type="number" class="form-control fs-3" id="name" name="sode" min="1" step="1" max="100" required>
+      </div>
+      <button type="button" class="btn btn-warning fs-3 btn-addoption">Thêm tùy chọn</button>
+      <div class="thongtindethi">
+        <div class="optiondethi" style="border: 1px solid #ccc; padding: 20px">
+          <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Số câu</label>
+            <input type="number" class="form-control fs-3" id="name" name="socau1" min="1" step="1" max="100" value="1" required>
+          </div>
+          <select class="form-select fs-3 mb-3 chudeoption" aria-label="Default select example" name="chude1" required>
+            <option selected>Chủ đề</option>
+            {{#each dschude}}
+            <option value="{{this.CD_id}}">{{this.CD_name}}</option>
+            {{/each}}
+          </select>
+          <select class="form-select fs-3 mb-3 dokhooption" aria-label="Default select example" name="dokho1" required>
+            <option selected>Độ khó</option>
+            {{#each dsdokho}}
+            <option value="{{this.DK_id}}">{{this.DK_name}}</option>
+            {{/each}}
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary fs-3">Thêm câu hỏi</button>
+    </form>
+  </div>
+</div>

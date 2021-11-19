@@ -1,0 +1,22 @@
+<!--<link rel="stylesheet" href="../../public/app.css">-->
+<div class="container-fluid p-0 d-flex flex-column align-items-center justify-content-center login-page">
+  <div class="account">
+    <h3 class="login-page-heading">Hệ thống thi online</h3>
+    <div class="login-form">
+      <form action="" method="POST">
+        <div class="inputBox">
+          <input type="text" name="username" id="username" required autocomplete="off">
+          <span>Tên đăng nhập</span>
+        </div>
+        <div class="inputBox">
+          <input type="password" name="password" id="password" required>
+          <span>Mật khẩu</span>
+        </div>
+        <p style="width: 300px; margin: auto; margin-bottom: 25px; color: red;">{{alertMsg}}</p>
+        <div class="inputBox">
+          <input type="submit" value="Đăng nhập">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

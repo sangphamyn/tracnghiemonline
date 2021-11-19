@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <button type="button" class="btn btn-success fs-3 teacher-btn-list">Danh sách</button>
+  <button type="button" class="btn btn-warning fs-3 teacher-btn-add">Thêm lớp học</button>
+  <table class="table list-teacher mt-4">
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Giáo viên chủ nhiệm</th>
+        <th scope="col">Số thành viên</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each dslophoc}}
+      <tr>
+        <th scope="row" class="py-3">{{sum @index 1}}</th>
+        <td><a href="/admin/qllh/{{this.id}}">{{this.LH_name}}</a></td>
+        <td>{{this.LH_giaovien}}</td>
+        <td>{{this.LH_sothanhvien}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div class="add-teacher hide mt-5">
+    <form action="" method="POST">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Tên lớp</label>
+        <input type="text" class="form-control fs-3" id="name" name="name">
+      </div>
+      <select class="form-select fs-3 mb-3" aria-label="Default select example" name="giaovien">
+        <option selected>Giáo viên chủ nhiệm</option>
+        {{#each dsgiaovien}}
+        <option value="{{this.GV_name}}">{{this.GV_name}}</option>
+        {{/each}}
+      </select>
+      <button type="submit" class="btn btn-primary fs-3">Tạo lớp</button>
+    </form>
+  </div>
+</div>

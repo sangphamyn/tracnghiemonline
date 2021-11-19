@@ -1,0 +1,41 @@
+<style>
+  .as {
+    font-size: 36px;
+  }
+  .as span {
+    font-size: 24px;
+  }
+</style>
+<div class="container mt-5">
+  <h3 class="text-center as mb-3"><span>Tên:</span> {{dshocsinh.0.KT_name}}</h3>
+  <h3 class="text-center as"><span>Môn:</span> {{dshocsinh.0.MH_name}}</h3>
+  <h3 class="text-center as mt-3"><span>Trạng thái:</span> {{#if dshocsinh.0.mothi}}Đang mở{{else}}Đang đóng{{/if}}</h3>
+
+  <div class="text-center my-5">
+    <a href="/gv/dscoithi/{{dshocsinh.0.id}}/1" type="button" class="btn btn-warning fs-3">Mở kì thi</a>
+    <a href="/gv/dscoithi/{{dshocsinh.0.id}}/0" type="button" class="btn btn-success fs-3">Đóng kì thi</a>
+  </div>
+
+  <table class="table list-teacher mt-4">
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Mã học sinh</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Thời gian bắt đầu làm bài</th>
+        <th scope="col">Số điểm</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each dshocsinh}}
+      <tr>
+        <th scope="row" class="py-3">{{sum @index 1}}</th>
+        <td>{{this.HS_ma}}</td>
+        <td>{{this.name}}</td>
+        <td>{{#if this.thoigian_batdau}}{{this.thoigian_batdau}}{{else}}Chưa thi{{/if}}</td>
+        {{#if this.thoigian_batdau}}<td>{{#if this.nopbai}}{{this.diem}}{{else}}Chưa nộp{{/if}}</td>{{else}}{{/if}}
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

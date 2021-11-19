@@ -1,0 +1,40 @@
+<div class="container">
+  <table class="table list-teacher mt-4">
+    <thead>
+      <tr>
+        <th scope="col">Mã bộ đề</th>
+        <th scope="col">Chủ đề</th>
+        <th scope="col">Độ khó</th>
+        <th scope="col">Số câu</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each dscauhinhbode}}
+      <tr>
+        <td><a href="/gv/quanlydanhsachdethi/{{this.BD_ma}}">{{this.BD_ma}}</a></td>
+        <td>{{this.CD_name}}</td>
+        <td>{{this.DK_name}}</td>
+        <td>{{this.CHBD_socau}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+<div class="container">
+  <table class="table list-teacher mt-4">
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Mã đề</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each dsdethi}}
+      <tr>
+        <th scope="row">{{sum @index 1}}</th>
+        <td><a href="/gv/dethi/{{this.DT_ma}}">{{this.DT_ma}}</a></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

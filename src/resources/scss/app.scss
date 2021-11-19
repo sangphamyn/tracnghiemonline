@@ -1,0 +1,32 @@
+@import 'reset';
+@import 'variables';
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.6rem;
+}
+
+@import 'login';
+@import 'header';
+@import 'qlgv';
+.hide {
+  display: none;
+}
+.submit-exam {
+  margin: 20px 0;
+  a {
+    border: 1px solid #ccc;
+    background: #ccc;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+  }
+}
+@import 'testpage';
+@import 'hetgio';

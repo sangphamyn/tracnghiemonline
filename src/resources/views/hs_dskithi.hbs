@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <table class="table list-teacher mt-4">
+    <thead>
+      <tr>
+        <th scope="col">Tên</th>
+        <th scope="col">Môn</th>
+        <th scope="col">Trạng thái</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each dskithi}}
+      <tr>
+        <td class="py-4">{{this.KT_name}}</td>
+        <td>{{this.MH_name}}</td>
+        <td>{{#if this.mothi}}Đang mở thi{{else}}Đang đóng{{/if}}</td>
+        <td>{{#if this.mothi}}<a href="/hs/dskithi/kithi{{this.id}}" type="button" class="btn btn-success fs-3">Tham gia thi</a>{{else}}{{/if}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

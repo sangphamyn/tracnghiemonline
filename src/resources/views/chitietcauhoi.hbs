@@ -1,0 +1,14 @@
+<div class="container my-5">
+  <div class="py-4" style="border-bottom: 1px solid #ccc"><span style="width: 150px; display: inline-block">Mã câu hỏi: </span> <span>{{chitietcauhoi.CH_id}}</span></div>
+  <div class="py-4" style="border-bottom: 1px solid #ccc"><span style="width: 150px; display: inline-block">Chủ đề: </span> <span>{{chitietcauhoi.CD_name}}</span></div>
+  <div class="py-4" style="border-bottom: 1px solid #ccc"><span style="width: 150px; display: inline-block">Mức độ: </span> <span>{{chitietcauhoi.DK_name}}</span></div>
+  <div class="py-4" style="border-bottom: 1px solid #ccc"><span style="width: 150px; display: inline-block">Nội dung: </span> <span>{{chitietcauhoi.CH_noidung}}</span></div>
+  <div class="py-4" style="border-bottom: 1px solid #ccc"><span style="width: 150px; display: inline-block">Đáp án 1: </span> <span>{{chitietcauhoi.CH_dapan1}}</span></div>
+  <div class="py-4" style="border-bottom: 1px solid #ccc"><span style="width: 150px; display: inline-block">Đáp án 2: </span> <span>{{chitietcauhoi.CH_dapan2}}</span></div>
+  <div class="py-4" style="border-bottom: 1px solid #ccc"><span style="width: 150px; display: inline-block">Đáp án 3: </span> <span>{{chitietcauhoi.CH_dapan3}}</span></div>
+  <div class="py-4" style="border-bottom: 1px solid #ccc"><span style="width: 150px; display: inline-block">Đáp án 4: </span> <span>{{chitietcauhoi.CH_dapan4}}</span></div>
+  <div class="py-4" style="border-bottom: 1px solid #ccc"><span style="width: 150px; display: inline-block">Đáp án đúng: </span> <span>{{chitietcauhoi.CH_dapandung}}</span></div>
+  <div class="py-4" style="border-bottom: 1px solid #ccc"><span style="width: 150px; display: inline-block">Tên người tạo: </span> <span>{{chitietcauhoi.GV_name}}</span></div>
+  <div class="py-4" style="border-bottom: 1px solid #ccc"><span style="width: 150px; display: inline-block">Thời gian tạo: </span> <span>{{chitietcauhoi.CH_thoigiantao}}</span></div>
+{{#if chitietcauhoi.duyet}}{{else}}<a type="button" class="btn btn-success fs-3 py-2" href="/gv/duyet/{{chitietcauhoi.CH_id}}">Duyệt câu hỏi vào ngân hàng câu hỏi</a>{{/if}}
+</div>

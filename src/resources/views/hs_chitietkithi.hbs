@@ -1,0 +1,25 @@
+<style>
+  .as {
+    font-size: 36px;
+  }
+  .as span {
+    font-size: 24px;
+  }
+</style>
+<div class="container mt-5">
+  <h3 class="text-center as mb-3"><span>Tên:</span> {{kithi.KT_name}}</h3>
+  <h3 class="text-center as mb-3"><span>Môn:</span> {{kithi.MH_name}}</h3>
+  <h3 class="text-center as mb-3"><span>Số câu:</span> {{kithi.BD_tongsocau}}</h3>
+  <h3 class="text-center as mb-3"><span>Thời gian:</span> {{kithi.thoigian}} phút</h3>
+  <h3 class="text-center as mb-3"><span>Người coi thi:</span> {{kithi.GV_name}}</h3>
+  <h3 class="text-center as mt-3"><span>Trạng thái:</span> {{#if kithi.mothi}}Đang mở{{else}}Đang đóng{{/if}}</h3>
+
+  <div class="text-center my-5">
+    {{#if kithi.nopbai}}
+    <h3 style="font-size: 30px; margin-bottom: 20px; font-weight: 600; border-top: 1px solid #ccc; padding-top: 20px">Bạn đã thi bài này</h3>
+    <a href="/hs/dskithi/kithi{{kithi.id}}/ketthuc" type="button" class="btn btn-warning fs-3">Xem kết quả</a>
+    {{else}}
+    <a href="/hs/dskithi/kithi{{kithi.id}}/lambai" type="button" class="btn btn-warning fs-3">Bắt đầu bài thi</a>
+    {{/if}}
+  </div>
+</div>
